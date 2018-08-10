@@ -25,6 +25,7 @@ def post_update(request,id):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
+        messages.success(request, "Item saved")
 
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {"title":instance.title,
