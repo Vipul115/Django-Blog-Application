@@ -29,7 +29,7 @@ def post_update(request,id):
 
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {"title":instance.title,
-                "instance" : instance,
+                "instance": instance,
                 "form":form
                }
     return render(request, "post_form.html", context)
