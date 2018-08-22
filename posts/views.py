@@ -17,21 +17,21 @@ def post_list(request):
     else:
         context = {"title": "You are not"}
 
-    return render(request, "index.html", context)
+    return render(request, "post_list.html", context)
 
 def post_update(request,id):
     instance = get_object_or_404(Post, id=id)
     form = PostForm(request.POST or None, instance = instance)
+
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
         messages.success(request, "Item saved")
-
         return HttpResponseRedirect(instance.get_absolute_url())
+
     context = {"title":instance.title,
                 "instance": instance,
-                "form":form
-               }
+                "form":form}
     return render(request, "post_form.html", context)
 
 def post_create(request):
@@ -40,6 +40,8 @@ def post_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
+        messages.success(request, "Successfully created!")
+        return HttpResponseRedirect(instance.get_absolute_url())
     context = {"form": form}
     return render(request, "post_form.html", context)
 

@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>
+        {% block title %}
+            Django-Blog
+        {% endblock title %}
+    </title>
+</head>
+<body>
+{% include "message_display.html" %}
+{% block content %}
+{% endblock content %}
+</body>
+</html>

@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post Details</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<h1>
-{{ title }} logged in.<br><br></h1>
+{% block title %}
+    {{ instance.title}} | {{ block.super }}
+{% endblock title %}
 
-{{instance.title}}<br>
-{{instance.content}}<br>
-{{instance.updated}}<br>
-{{instance.timestamp}}<br>
-{{instance.id}}<br><br>
-</body>
-</html>
+{% block content %}
+    {{instance.title}}<br>
+    {{instance.content}}<br>
+    {{instance.updated}}<br>
+    {{instance.timestamp}}<br>
+    {{instance.id}}<br><br>
+{% endblock content %}
