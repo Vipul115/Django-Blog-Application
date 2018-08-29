@@ -1,6 +1,6 @@
-from django.contrib import admin
-from django.urls import path
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from .views import post_detail,post_update,post_list,post_delete,post_create
 urlpatterns = [
     url(r'^$', post_list),
@@ -10,3 +10,8 @@ urlpatterns = [
     url(r'^delete/$', post_delete)
 
 ]
+
+
+
+#if settings.DEBUG:
+#    urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
